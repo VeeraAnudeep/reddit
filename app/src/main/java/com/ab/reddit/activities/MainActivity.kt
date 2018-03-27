@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import com.ab.reddit.Constants.REQUEST_CODE
 import com.ab.reddit.R
 import com.ab.reddit.adapters.TopicsAdapter
 import com.ab.reddit.base.BaseActivity
@@ -18,6 +19,7 @@ import kotlinx.android.synthetic.main.content_main.*
 import javax.inject.Inject
 
 class MainActivity : BaseActivity<RedditViewModel>(), ClickListener, SwipeRefreshLayout.OnRefreshListener {
+
     /**
      * Called when a swipe gesture triggers a refresh.
      */
@@ -48,9 +50,11 @@ class MainActivity : BaseActivity<RedditViewModel>(), ClickListener, SwipeRefres
         swipeRefreshLayout.setOnRefreshListener(this)
         list.adapter = adapter
         fab.setOnClickListener { view ->
-            startActivityForResult(Intent(this, TopicPostActivity::class.java), 101)
+            startActivityForResult(Intent(this, TopicPostActivity::class.java),
+                    REQUEST_CODE)
         }
         model.getTopics()
+        progress.visibility = View.VISIBLE
         onTopicsFetched()
         onShowZeroCase()
     }
@@ -82,6 +86,7 @@ class MainActivity : BaseActivity<RedditViewModel>(), ClickListener, SwipeRefres
     private fun onTopicsFetched() {
         model.topics.observe(this, Observer<ArrayList<Topic>> {
             it?.let {
+                progress.visibility = View.GONE
                 swipeRefreshLayout.isRefreshing = false
                 adapter?.setTopics(it)
             }
@@ -89,7 +94,7 @@ class MainActivity : BaseActivity<RedditViewModel>(), ClickListener, SwipeRefres
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == 100 && resultCode == Activity.RESULT_OK) {
+        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             model.getTopics()
         }
     }

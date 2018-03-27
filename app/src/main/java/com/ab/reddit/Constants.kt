@@ -6,4 +6,5 @@ package com.ab.reddit
 object Constants {
     const val UPVOTE = "up-vote"
     const val DOWNVOTE = "down-vote"
+    const val REQUEST_CODE = 101
 }

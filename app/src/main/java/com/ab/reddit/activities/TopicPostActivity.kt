@@ -3,6 +3,8 @@ package com.ab.reddit.activities
 import android.app.Activity
 import android.arch.lifecycle.Observer
 import android.os.Bundle
+import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import com.ab.reddit.R
 import com.ab.reddit.base.BaseActivity
@@ -30,22 +32,34 @@ class TopicPostActivity : BaseActivity<RedditViewModel>() {
         val supportActionBar = supportActionBar
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        toolbar.title = "Post Topic"
+        supportActionBar?.title = "Post Topic"
         submit.setOnClickListener {
             val content = editText.text.toString().trim()
             if (!content.isEmpty()) {
+                submit.isEnabled = false
+                progress.visibility = View.VISIBLE
                 model.post(content)
             }
         }
         model.onPostSubmitted.observe(this,Observer<Boolean>{
+            progress.visibility = View.GONE
+            submit.isEnabled = true
             if(it==true){
                 setResult(Activity.RESULT_OK)
-                showToast("Topic Posted")
+                showToast("Topic Posted!")
                 finish()
             }else{
                 showToast("Oops! There is some issue.")
             }
         })
+    }
+
+
+    override fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
+        if (menuItem.itemId == android.R.id.home) {
+            finish()
+        }
+        return super.onOptionsItemSelected(menuItem)
     }
 
     private fun showToast(message:String){
