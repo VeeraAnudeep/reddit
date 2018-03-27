@@ -93,6 +93,7 @@ class MainActivity : BaseActivity<RedditViewModel>(), ClickListener, SwipeRefres
         })
     }
 
+    /*Refreshing the list if a topic is posted*/
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             model.getTopics()
