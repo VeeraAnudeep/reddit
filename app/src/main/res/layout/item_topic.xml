@@ -17,7 +17,7 @@
             android:id="@+id/ic_upvote"
             android:padding="@dimen/spacing_4"
             android:layout_width="wrap_content"
-            app:layout_constraintTop_toTopOf="@+id/content"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:src="@drawable/ic_upvote"
             android:layout_height="wrap_content"/>
@@ -35,9 +35,10 @@
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/ic_downvote"
-            android:layout_marginStart="@dimen/spacing_4"
+            android:layout_marginStart="@dimen/spacing_2"
             android:padding="@dimen/spacing_4"
             android:layout_width="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ic_upvote"
             android:src="@drawable/ic_downvote"
             android:layout_height="wrap_content"/>
@@ -55,15 +56,18 @@
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/content"
             android:layout_width="0dp"
-            android:maxLength="255"
-            android:ellipsize="end"
-            android:layout_marginStart="@dimen/spacing_8"
-            tools:text="There’s no escape from problems and challenges. They’re a part of life.
-\nExcerpt From: Amish. “Sita - Warrior of Mithila (Book 2 of the Ram Chandra Series)"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="@dimen/spacing_8"
+            android:ellipsize="end"
+            android:maxLength="255"
+            android:textColor="#66bbae"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ic_downvote"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="There’s no escape from problems and challenges. They’re a part of life.
+\nExcerpt From: Amish. “Sita - Warrior of Mithila (Book 2 of the Ram Chandra Series)"/>
 
     </android.support.constraint.ConstraintLayout>
 
