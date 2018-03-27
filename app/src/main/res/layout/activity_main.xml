@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ab.reddit.MainActivity">
+    tools:context="com.ab.reddit.activities.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -22,6 +22,10 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main"/>
+    <include
+        android:id="@+id/zeroCase"
+        android:visibility="gone"
+        layout="@layout/zerocase"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

@@ -1,4 +1,4 @@
-package com.toppr.dubbio.v3.base
+package com.ab.reddit.base
 
 interface BaseView {
     fun showLoading()

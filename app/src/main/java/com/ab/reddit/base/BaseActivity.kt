@@ -1,4 +1,4 @@
-package com.toppr.dubbio.v3.base
+package com.ab.reddit.base
 
 import android.content.Context
 import android.os.Bundle
@@ -6,7 +6,6 @@ import android.support.v4.content.LocalBroadcastManager
 import android.view.inputmethod.InputMethodManager
 import com.google.gson.Gson
 import dagger.android.support.DaggerAppCompatActivity
-import java.io.File
 import javax.inject.Inject
 
 

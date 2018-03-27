@@ -1,4 +1,4 @@
-package com.toppr.dubbio
+package com.ab.reddit.dagger
 
 import android.app.Application
 import com.ab.reddit.ApplicationClass

@@ -1,4 +1,4 @@
-package com.toppr.dubbio
+package com.ab.reddit.dagger
 
 import android.app.Application
 import android.support.v4.content.LocalBroadcastManager
@@ -29,7 +29,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideRetrofitInstance(application: Application): Retrofit {
+    fun provideRetrofitInstance(): Retrofit {
         val logging = HttpLoggingInterceptor()
 
         if (BuildConfig.DEBUG) {

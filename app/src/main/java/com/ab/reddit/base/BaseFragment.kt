@@ -1,4 +1,4 @@
-package com.toppr.dubbio.v3.base
+package com.ab.reddit.base
 
 import android.content.Context
 import android.support.v4.content.LocalBroadcastManager

@@ -1,5 +1,6 @@
-package com.ab.reddit
+package com.ab.reddit.modules
 
+import com.ab.reddit.viewmodels.RedditViewModel
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
